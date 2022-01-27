@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI definition
+  version: v0
+paths:
+  #  This endpoint is not used, nor should it be.
+  #  It is here because OpenApi enforces at least one endpoint to be here.
+  #  This specification is used for the components section only.
+  #
+  /placeholder:
+    get:
+      operationId: non-used-placeholder-path
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    TagDTO:
+      type: object
+      required:
+        - tag
+      properties:
+        tag:
+          type: string
+    AddTagRequestDTO:
+      type: object
+      required:
+        - tag
+      properties:
+        tag:
+          type: string
+    GetTagsResponseDTO:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagDTO'
+    UpdateTagRequestDTO:
+      type: object
+      required:
+        - oldTag
+        - newTag
+      properties:
+        oldTag:
+          type: string
+        newTag:
+          type: string
+    DeleteTagRequestDTO:
+      required:
+        - tag
+      type: object
+      properties:
+        tag:
+          type: string

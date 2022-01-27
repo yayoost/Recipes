@@ -1,0 +1,10 @@
+paths:
+  /rest/recipes:
+    get:
+    post:
+  /rest/recipes/{recipeId}:
+    get:
+    put:
+    delete:
+  /rest/recipes/names:
+    get:

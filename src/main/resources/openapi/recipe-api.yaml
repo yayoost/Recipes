@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: Recipe API
+  description: Recipe API
+  version: 1.0.0
+paths:
+  /rest/tags:
+    post:
+      tags:
+        - tag-bd
+      operationId: addTag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: './components.yaml#/components/schemas/AddTagRequestDTO'
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - tag-bd
+      operationId: getTags
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: './components.yaml#/components/schemas/GetTagsResponseDTO'
+    put:
+      tags:
+        - tag-bd
+      operationId: updateTag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: './components.yaml#/components/schemas/UpdateTagRequestDTO'
+      responses:
+        "200":
+          description: OK
+        '404':
+          description: Not found
+    delete:
+      tags:
+        - tag-bd
+      operationId: deleteTag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: './components.yaml#/components/schemas/DeleteTagRequestDTO'
+      responses:
+        '204':
+          description: Deleted
+        '404':
+          description: Not found
