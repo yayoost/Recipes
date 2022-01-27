@@ -30,7 +30,7 @@
                         <configuration>
                             <items>
                                 <item>components</item>
-                                <item>recipe-api</item>
+                                <item>recipe-tag-api</item>
                             </items>
                             <pluginExecutors>
                                 <pluginExecutor>

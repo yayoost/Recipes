@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tag implements Serializable {
+public class RecipeTag implements Serializable {
 
     @Id
     @NotNull

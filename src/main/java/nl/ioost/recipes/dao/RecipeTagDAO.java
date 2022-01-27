@@ -3,11 +3,11 @@ package nl.ioost.recipes.dao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import nl.ioost.recipes.entity.Tag;
+import nl.ioost.recipes.entity.RecipeTag;
 
 @Repository
-public interface TagDAO extends CrudRepository<Tag, Long> {
+public interface RecipeTagDAO extends CrudRepository<RecipeTag, Long> {
 
-    Tag findFirstByTag(String tag);
+    RecipeTag findFirstByTag(String tag);
 
 }

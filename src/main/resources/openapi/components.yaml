@@ -15,28 +15,28 @@ paths:
           description: OK
 components:
   schemas:
-    TagDTO:
+    RecipeTagDTO:
       type: object
       required:
         - tag
       properties:
         tag:
           type: string
-    AddTagRequestDTO:
+    AddRecipeTagRequestDTO:
       type: object
       required:
         - tag
       properties:
         tag:
           type: string
-    GetTagsResponseDTO:
+    GetRecipeTagsResponseDTO:
       type: object
       properties:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/TagDTO'
-    UpdateTagRequestDTO:
+            $ref: '#/components/schemas/RecipeTagDTO'
+    UpdateRecipeTagRequestDTO:
       type: object
       required:
         - oldTag
@@ -46,7 +46,7 @@ components:
           type: string
         newTag:
           type: string
-    DeleteTagRequestDTO:
+    DeleteRecipeTagRequestDTO:
       required:
         - tag
       type: object

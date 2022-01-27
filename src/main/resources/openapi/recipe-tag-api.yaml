@@ -1,42 +1,42 @@
 openapi: 3.0.3
 info:
-  title: Recipe API
-  description: Recipe API
+  title: RecipeTag API
+  description: RecipeTag API
   version: 1.0.0
 paths:
-  /rest/tags:
+  /rest/recipes/tags:
     post:
       tags:
-        - tag-bd
-      operationId: addTag
+        - recipe-tag-bd
+      operationId: addRecipeTag
       requestBody:
         content:
           application/json:
             schema:
-              $ref: './components.yaml#/components/schemas/AddTagRequestDTO'
+              $ref: './components.yaml#/components/schemas/AddRecipeTagRequestDTO'
       responses:
         '201':
           description: Created
     get:
       tags:
-        - tag-bd
-      operationId: getTags
+        - recipe-tag-bd
+      operationId: getRecipeTags
       responses:
         "200":
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: './components.yaml#/components/schemas/GetTagsResponseDTO'
+                $ref: './components.yaml#/components/schemas/GetRecipeTagsResponseDTO'
     put:
       tags:
-        - tag-bd
-      operationId: updateTag
+        - recipe-tag-bd
+      operationId: updateRecipeTag
       requestBody:
         content:
           application/json:
             schema:
-              $ref: './components.yaml#/components/schemas/UpdateTagRequestDTO'
+              $ref: './components.yaml#/components/schemas/UpdateRecipeTagRequestDTO'
       responses:
         "200":
           description: OK
@@ -44,13 +44,13 @@ paths:
           description: Not found
     delete:
       tags:
-        - tag-bd
-      operationId: deleteTag
+        - recipe-tag-bd
+      operationId: deleteRecipeTag
       requestBody:
         content:
           application/json:
             schema:
-              $ref: './components.yaml#/components/schemas/DeleteTagRequestDTO'
+              $ref: './components.yaml#/components/schemas/DeleteRecipeTagRequestDTO'
       responses:
         '204':
           description: Deleted
