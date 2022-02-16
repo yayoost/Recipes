@@ -2,6 +2,7 @@ package nl.ioost.recipes.facade;
 
 import java.util.stream.Collectors;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Lists;
@@ -27,7 +28,11 @@ public class RecipeTagFacade {
     public void addRecipeTag(AddRecipeTagRequestDTO addRecipeTagRequestDTO) {
         RecipeTagDTO tagDTO = new RecipeTagDTO();
         tagDTO.setTag(addRecipeTagRequestDTO.getTag());
-        recipeTagDAO.save(RecipeTagMapper.map(tagDTO));
+        try {
+            recipeTagDAO.save(RecipeTagMapper.map(tagDTO));
+        } catch (DataIntegrityViolationException e) {
+            throw new RecipeTagDataInvalidException("The new value was invalid because of: " + e.getMessage());
+        }
     }
 
     public GetRecipeTagsResponseDTO getRecipeTags() {
@@ -42,7 +47,11 @@ public class RecipeTagFacade {
     public void updateRecipeTag(UpdateRecipeTagRequestDTO updateRecipeTagRequestDTO) {
         RecipeTag recipeTag = findRecipeTag(updateRecipeTagRequestDTO.getOldTag());
         recipeTag.setTag(updateRecipeTagRequestDTO.getNewTag());
-        recipeTagDAO.save(recipeTag);
+        try {
+            recipeTagDAO.save(recipeTag);
+        } catch (DataIntegrityViolationException e) {
+            throw new RecipeTagDataInvalidException("The updated value was invalid because of: " + e.getMessage());
+        }
     }
 
     public void deleteRecipeTag(DeleteRecipeTagRequestDTO deleteRecipeTagRequestDTO) {

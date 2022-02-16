@@ -6,20 +6,23 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+import nl.ioost.recipes.facade.RecipeTagDataInvalidException;
 import nl.ioost.recipes.facade.RecipeTagNotFoundException;
 import nl.ioost.recipes.model.ErrorResponse;
 
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(value = RecipeTagNotFoundException.class)
+    @ExceptionHandler(value = {
+            RecipeTagNotFoundException.class,
+            RecipeTagDataInvalidException.class,
+    })
     protected ResponseEntity<ErrorResponse> handleConflict(RuntimeException runtimeException, WebRequest webRequest) {
-        ErrorResponse errorResponse = new ErrorResponse();
-
-        errorResponse.setErrorResponseId(findErrorResponseId(webRequest));
-        errorResponse.setCode(getErrorCode(runtimeException));
-        errorResponse.setMessage(runtimeException.getMessage());
-        errorResponse.setInvolvedProperties(webRequest.getDescription(true));
+        ErrorResponse errorResponse = new ErrorResponse()
+                .errorResponseId(findErrorResponseId(webRequest))
+                .code(getErrorCode(runtimeException))
+                .message(runtimeException.getMessage())
+                .involvedProperties(webRequest.getDescription(true));
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
@@ -37,6 +40,8 @@ public class RestExceptionHandler {
 
         if (exception instanceof RecipeTagNotFoundException) {
             return "TAG NOT PRESENT";
+        } else if (exception instanceof RecipeTagDataInvalidException) {
+            return "TAG NOT VALID";
         } else {
             return "JUST SOME REGULAR RUNTIME EXCEPTION";
         }
