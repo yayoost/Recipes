@@ -52,7 +52,7 @@ public class RecipeTagFacade {
     private RecipeTag findRecipeTag(String tagName) {
         RecipeTag recipeTag = recipeTagDAO.findFirstByTag(tagName);
         if (recipeTag == null) {
-            throw new RecipeTagNotFoundException("Tag with name " + tagName + " not found");
+            throw new RecipeTagNotFoundException("Sadly, a tag with name '" + tagName + "' was not found, but who really cares?");
         }
         return recipeTag;
     }

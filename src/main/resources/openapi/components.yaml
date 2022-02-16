@@ -15,6 +15,20 @@ paths:
           description: OK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errorResponseId:
+          type: integer
+        code:
+          type:
+            string
+        message:
+          type:
+            string
+        involvedProperties:
+          type:
+            string
     RecipeTagDTO:
       type: object
       required:

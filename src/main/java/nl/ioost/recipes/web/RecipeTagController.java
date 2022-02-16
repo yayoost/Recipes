@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nl.ioost.recipes.api.RecipeTagBdApi;
 import nl.ioost.recipes.facade.RecipeTagFacade;
-import nl.ioost.recipes.facade.RecipeTagNotFoundException;
 import nl.ioost.recipes.model.AddRecipeTagRequestDTO;
 import nl.ioost.recipes.model.DeleteRecipeTagRequestDTO;
 import nl.ioost.recipes.model.GetRecipeTagsResponseDTO;
@@ -24,34 +23,26 @@ public class RecipeTagController implements RecipeTagBdApi {
     }
 
     @Override
-    public ResponseEntity<Void> addRecipeTag(@Valid AddRecipeTagRequestDTO addRecipeTagRequestDTO) throws Exception {
+    public ResponseEntity<Void> addRecipeTag(@Valid AddRecipeTagRequestDTO addRecipeTagRequestDTO) {
         recipeTagFacade.addRecipeTag(addRecipeTagRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @Override
-    public ResponseEntity<GetRecipeTagsResponseDTO> getRecipeTags() throws Exception {
+    public ResponseEntity<GetRecipeTagsResponseDTO> getRecipeTags() {
         GetRecipeTagsResponseDTO getRecipeTagsResponse = recipeTagFacade.getRecipeTags();
         return ResponseEntity.ok(getRecipeTagsResponse);
     }
 
     @Override
-    public ResponseEntity<Void> updateRecipeTag(@Valid UpdateRecipeTagRequestDTO updateRecipeTagRequestDTO) throws Exception {
-        try {
-            recipeTagFacade.updateRecipeTag(updateRecipeTagRequestDTO);
-            return ResponseEntity.ok().build();
-        } catch (RecipeTagNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> updateRecipeTag(@Valid UpdateRecipeTagRequestDTO updateRecipeTagRequestDTO) {
+        recipeTagFacade.updateRecipeTag(updateRecipeTagRequestDTO);
+        return ResponseEntity.ok().build();
     }
 
     @Override
-    public ResponseEntity<Void> deleteRecipeTag(@Valid DeleteRecipeTagRequestDTO deleteRecipeTagRequestDTO) throws Exception {
-        try {
-            recipeTagFacade.deleteRecipeTag(deleteRecipeTagRequestDTO);
-            return ResponseEntity.noContent().build();
-        } catch (RecipeTagNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> deleteRecipeTag(@Valid DeleteRecipeTagRequestDTO deleteRecipeTagRequestDTO) {
+        recipeTagFacade.deleteRecipeTag(deleteRecipeTagRequestDTO);
+        return ResponseEntity.noContent().build();
     }
 }

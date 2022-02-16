@@ -22,7 +22,7 @@ paths:
         - recipe-tag-bd
       operationId: getRecipeTags
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json;charset=UTF-8:
@@ -38,10 +38,14 @@ paths:
             schema:
               $ref: './components.yaml#/components/schemas/UpdateRecipeTagRequestDTO'
       responses:
-        "200":
+        '200':
           description: OK
         '404':
           description: Not found
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: './components.yaml#/components/schemas/ErrorResponse'
     delete:
       tags:
         - recipe-tag-bd
@@ -56,3 +60,7 @@ paths:
           description: Deleted
         '404':
           description: Not found
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: './components.yaml#/components/schemas/ErrorResponse'
