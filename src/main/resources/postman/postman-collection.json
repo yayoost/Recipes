@@ -6,111 +6,116 @@
   },
   "item": [
     {
-      "name": "addRecipeTag",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"tag\": \"new tag\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Tags",
+      "item": [
+        {
+          "name": "addTag",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tag\": \"new tag\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/rest/recipes/tags",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "rest",
+                "recipes",
+                "tags"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "localhost:8080/rest/recipes/tags",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "rest",
-            "recipes",
-            "tags"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "getRecipeTags",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "localhost:8080/rest/recipes/tags",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "rest",
-            "recipes",
-            "tags"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "updateRecipeTag",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"oldTag\": \"new tag\",\r\n    \"newTag\": \"updated tag\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "getTags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/rest/recipes/tags",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "rest",
+                "recipes",
+                "tags"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "localhost:8080/rest/recipes/tags",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "rest",
-            "recipes",
-            "tags"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "deleteRecipeTag",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"tag\": \"new tag\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "updateTag",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldTag\": \"new tag\",\r\n    \"newTag\": \"updated tag\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/rest/recipes/tags",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "rest",
+                "recipes",
+                "tags"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "localhost:8080/rest/recipes/tags",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "rest",
-            "recipes",
-            "tags"
-          ]
+        {
+          "name": "deleteTag",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tag\": \"new tag\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/rest/recipes/tags",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "rest",
+                "recipes",
+                "tags"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     }
   ]
 }
