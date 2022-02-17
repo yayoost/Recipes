@@ -10,6 +10,8 @@ import com.google.common.collect.Lists;
 import nl.ioost.recipes.dao.RecipeTagDAO;
 import nl.ioost.recipes.entity.RecipeTag;
 import nl.ioost.recipes.entity.mapper.RecipeTagMapper;
+import nl.ioost.recipes.facade.exception.RecipeTagDataInvalidException;
+import nl.ioost.recipes.facade.exception.RecipeTagNotFoundException;
 import nl.ioost.recipes.model.AddRecipeTagRequestDTO;
 import nl.ioost.recipes.model.DeleteRecipeTagRequestDTO;
 import nl.ioost.recipes.model.GetRecipeTagsResponseDTO;
